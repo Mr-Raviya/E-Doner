@@ -6,7 +6,6 @@ import { Platform } from 'react-native';
 
 export default function RootLayout() {
   useEffect(() => {
-    // Hide navigation bar on Android
     if (Platform.OS === 'android') {
       NavigationBar.setVisibilityAsync('hidden');
     }
@@ -14,15 +13,12 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar style="dark" backgroundColor="transparent" translucent={true} />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          statusBarStyle: 'light',
-          statusBarBackgroundColor: '#DC2626',
-        }}
-      >
+      <StatusBar style="dark" />
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
+        <Stack.Screen name="onboarding" />
+        <Stack.Screen name="role-selection" />
+        <Stack.Screen name="(tabs)" />
       </Stack>
     </>
   );
